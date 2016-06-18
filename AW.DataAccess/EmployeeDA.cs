@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace AW.DataAccess
 {
@@ -99,7 +100,6 @@ namespace AW.DataAccess
             }
             return listado;
         }
-
         public List<Employee> GetEmployeesWithParamSP(string JobTitle)
         {
             //JobTitle = string.Concat("%",JobTitle,"%");
@@ -151,6 +151,56 @@ namespace AW.DataAccess
             return listado;
         }
 
+        public int InsertEmployee(Employee empleado, Person person)
+        {
+            var be = new BusinessEntities();
+            be.rowguid = Guid.NewGuid();
+            be.ModifiedDate = DateTime.Now;
+            int businessEntityID = 0;
+
+            using (SqlConnection cn = new SqlConnection(strConnection))
+            {
+                //configurando el comando
+                SqlCommand cmd = new SqlCommand("usp_InsertBusinessEntity", cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                //cn.Open();
+
+                if (cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+                else
+                {
+                    cn.Open();
+                }
+                SqlParameter param1 = new SqlParameter();
+                param1.ParameterName = "@rowguid";
+                param1.SqlDbType = System.Data.SqlDbType.UniqueIdentifier;
+                param1.Direction = System.Data.ParameterDirection.Input;
+                param1.Value = be.rowguid;
+                cmd.Parameters.Add(param1);
+
+                SqlParameter param2 = new SqlParameter();
+                param2.ParameterName = "@ModifiedDate";
+                param2.SqlDbType = System.Data.SqlDbType.DateTime;
+                param2.Direction = System.Data.ParameterDirection.Input;
+                param2.Value = be.ModifiedDate;
+                cmd.Parameters.Add(param2);
+
+                SqlParameter paramOut1 = new SqlParameter();
+                paramOut1.ParameterName = "@BusinessEntityID";
+                paramOut1.SqlDbType = System.Data.SqlDbType.Int;
+                paramOut1.Direction = System.Data.ParameterDirection.Output;
+
+                cmd.Parameters.Add(paramOut1);
+
+                cmd.ExecuteNonQuery();
+                //casteo a int
+                businessEntityID = (int)paramOut1.Value;
+            }
+            return businessEntityID;
+        }
 
     }
 }

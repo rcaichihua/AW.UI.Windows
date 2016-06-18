@@ -1,4 +1,5 @@
 ﻿using AW.DataAccess;
+using AW.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,14 @@ namespace AW.UI.Windows
             var da = new EmployeeDA();
             var listado = da.GetEmployeesWithParam(txtFiltro.Text);
             dgvLista.DataSource = listado;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var da = new EmployeeDA();
+            var person = new Person();
+            var emp = new Employee();
+            da.InsertEmployee(emp,person);
         }
     }
 }
