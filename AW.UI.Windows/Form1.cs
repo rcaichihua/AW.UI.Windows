@@ -22,8 +22,8 @@ namespace AW.UI.Windows
         private void btnConectar_Click(object sender, EventArgs e)
         {
             var da = new EmployeeDA();
-            var listado = da.GetEmployeesWithParam(txtFiltro.Text);
-            dgvLista.DataSource = listado;
+            //var listado = da.GetEmployeesWithParam(txtFiltro.Text);
+            //dgvLista.DataSource = listado;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace AW.UI.Windows
             person.ModifiedDate = DateTime.Now;
 
             var emp = new Employee();
-            da.InsertEmployee(emp,person);
+            //da.InsertEmployee(emp,person);
         }
     }
 }
