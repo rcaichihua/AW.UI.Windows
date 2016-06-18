@@ -30,6 +30,17 @@ namespace AW.UI.Windows
         {
             var da = new EmployeeDA();
             var person = new Person();
+            person.PersonType = "EM";
+            person.NameStyle = true;
+            person.Title = "Mr.";
+            person.FirstName = "ssss";
+            person.MiddleName = "fsdf";
+            person.LastName = "fssdfs";
+            person.Suffix = "Jr.";
+            person.EmailPromotion = 0;
+            person.rowguid = Guid.NewGuid();
+            person.ModifiedDate = DateTime.Now;
+
             var emp = new Employee();
             da.InsertEmployee(emp,person);
         }
