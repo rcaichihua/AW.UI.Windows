@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW.UI.Windows", "AW.UI.Wind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW.Entities", "AW.Entities\AW.Entities.csproj", "{75519392-A55F-4C73-A391-43E08323BA80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW.DataAccess", "AW.DataAccess\AW.DataAccess.csproj", "{93EE45CC-78C9-43F0-8C20-C5E2D3B308DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{75519392-A55F-4C73-A391-43E08323BA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75519392-A55F-4C73-A391-43E08323BA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75519392-A55F-4C73-A391-43E08323BA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93EE45CC-78C9-43F0-8C20-C5E2D3B308DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93EE45CC-78C9-43F0-8C20-C5E2D3B308DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93EE45CC-78C9-43F0-8C20-C5E2D3B308DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93EE45CC-78C9-43F0-8C20-C5E2D3B308DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
